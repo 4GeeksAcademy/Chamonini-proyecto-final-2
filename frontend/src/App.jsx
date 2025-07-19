@@ -1,25 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import EstanqueConGrafico from './EstanqueConGrafico';
 import Alarmas from './Alarmas';
+import Historial from './Historial';
+import LoginRegistro from './LoginRegistro';
+import Layout from './Layout';
 import './App.css';
 
 const App = () => {
   return (
     <Router>
-      <div className="contenedor">
-        <h1>Control del Estanque</h1>
-
-        <nav style={{ marginBottom: '20px' }}>
-          <Link to="/" style={{ margin: '10px' }}>🏞 Estanque</Link>
-          <Link to="/alarmas" style={{ margin: '10px' }}>🚨 Alarmas</Link>
-        </nav>
-
-        <Routes>
-          <Route path="/" element={<EstanqueConGrafico />} />
-          <Route path="/alarmas" element={<Alarmas />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<EstanqueConGrafico />} />
+          <Route path="alarmas" element={<Alarmas />} />
+          <Route path="historial" element={<Historial />} />
+          <Route path="login" element={<LoginRegistro />} />
+        </Route>
+      </Routes>
     </Router>
   );
 };

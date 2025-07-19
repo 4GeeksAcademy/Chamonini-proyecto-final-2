@@ -1,0 +1,12 @@
+
+{
+  "name": "proyecto-final",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"cd backend && source .venv/bin/activate && python app.py\" \"cd frontend && npm start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

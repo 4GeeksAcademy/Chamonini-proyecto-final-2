@@ -1,45 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { getHistory } from './services/api';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import { getHistory } from './services/api';
 
 const Historial = () => {
-    const [historial, setHistorial] = useState([]);
+  const [historial, setHistorial] = useState([]);
 
+  useEffect(() => {
     const fetchHistorial = async () => {
+      try {
         const data = await getHistory();
         setHistorial(data);
+      } catch (error) {
+        console.error("Error al obtener historial:", error);
+      }
     };
 
-    useEffect(() => {
-        fetchHistorial();
-    }, []);
+    fetchHistorial();
+  }, []);
 
-    return (
-        <div className="contenedor">
-            <h1>Historial de Niveles</h1>
-            <button onClick={fetchHistorial} className="boton encender" style={{ marginBottom: '20px' }}>🔄 Actualizar</button>
-            <table style={{ width: '80%', margin: 'auto', borderCollapse: 'collapse' }}>
-                <thead>
-                    <tr>
-                        <th>Nivel (m)</th>
-                        <th>Fecha y Hora</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {historial.length === 0 ? (
-                        <tr><td colSpan="2" style={{ textAlign: 'center' }}>No hay datos</td></tr>
-                    ) : (
-                        historial.map((item, index) => (
-                            <tr key={index}>
-                                <td style={{ textAlign: 'center' }}>{item.nivel}</td>
-                                <td style={{ textAlign: 'center' }}>{item.fecha_hora}</td>
-                            </tr>
-                        ))
-                    )}
-                </tbody>
-            </table>
-        </div>
-    );
+  return (
+    <div className="contenedor">
+      <h1>Historial Completo</h1>
+      <ul style={{ listStyle: 'none', padding: 0, maxWidth: '500px', margin: 'auto' }}>
+        {historial.length === 0 ? (
+          <li>No hay datos en el historial.</li>
+        ) : (
+          historial.map((item, index) => (
+            <li key={index} style={{
+              backgroundColor: '#f2f2f2',
+              marginBottom: '10px',
+              padding: '10px',
+              borderRadius: '8px',
+              border: '1px solid #ccc'
+            }}>
+              Nivel: {item.nivel} m — {item.fecha_hora}
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
+  );
 };
 
 export default Historial;

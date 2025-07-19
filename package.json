@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "react-router-dom": "^7.7.0"
+  "name": "proyecto-final",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+  "start": "concurrently \"cd backend && FLASK_APP=app.py flask run --host=0.0.0.0 --port=5000\" \"cd frontend && npm start\""
+},
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
+
+
