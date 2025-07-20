@@ -1,0 +1,11 @@
+{
+  "name": "proyecto-final",
+  "forwardPorts": [3000, 5000],
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": []
+    }
+  }
+}

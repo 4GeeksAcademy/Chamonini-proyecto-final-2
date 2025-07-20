@@ -25,7 +25,9 @@ class User(db.Model):
     email = db.Column(db.String(120), nullable=True)
     password = db.Column(db.String(200), nullable=False)
 
+# ⚠️ Importante: borrar y crear tablas limpias
 with app.app_context():
+    db.drop_all()
     db.create_all()
 
 # Estado actual
@@ -80,7 +82,6 @@ def reset_password():
     db.session.commit()
     return jsonify({"message": "Contraseña restablecida exitosamente"}), 200
 
-# Nivel de agua y motobomba (igual a lo que tenías)
 @app.route('/level', methods=['GET'])
 def get_level():
     return jsonify({"nivel_metros": round(nivel_actual, 2)})

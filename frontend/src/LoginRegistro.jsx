@@ -61,21 +61,22 @@ const LoginRegistro = () => {
   };
 
   return (
-    <div className="contenedor">
-      <h1>
+    <div className="contenedor-login">
+      <h1 className="titulo-principal">Control de Estanques</h1>
+      <h2 className="titulo-secundario">
         {modo === 'login' && 'Iniciar Sesión'}
         {modo === 'register' && 'Registro de Usuario'}
         {modo === 'reset' && 'Restablecer Contraseña'}
-      </h1>
+      </h2>
 
-      <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: 'auto' }}>
+      <form onSubmit={handleSubmit} className="formulario-login">
         <input
           type="text"
           placeholder="Usuario"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          style={{ display: 'block', margin: '10px auto', padding: '10px', width: '100%' }}
+          className="input-login"
         />
 
         {(modo === 'register' || modo === 'reset') && (
@@ -85,7 +86,7 @@ const LoginRegistro = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{ display: 'block', margin: '10px auto', padding: '10px', width: '100%' }}
+            className="input-login"
           />
         )}
 
@@ -95,33 +96,35 @@ const LoginRegistro = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          style={{ display: 'block', margin: '10px auto', padding: '10px', width: '100%' }}
+          className="input-login"
         />
 
-        <button type="submit" className="boton" style={{ width: '100%', marginBottom: '10px' }}>
+        <button type="submit" className="boton-principal">
           {modo === 'login' && 'Iniciar Sesión'}
           {modo === 'register' && 'Registrarse'}
           {modo === 'reset' && 'Restablecer Contraseña'}
         </button>
       </form>
 
-      {modo !== 'login' && (
-        <button onClick={() => cambiarModo('login')} className="boton" style={{ width: '100%', backgroundColor: '#0077cc' }}>
-          ¿Ya tienes cuenta? Iniciar Sesión
-        </button>
-      )}
-      {modo !== 'register' && (
-        <button onClick={() => cambiarModo('register')} className="boton" style={{ width: '100%', backgroundColor: '#28a745' }}>
-          ¿No tienes cuenta? Registrarse
-        </button>
-      )}
-      {modo !== 'reset' && (
-        <button onClick={() => cambiarModo('reset')} className="boton" style={{ width: '100%', backgroundColor: '#ffc107' }}>
-          ¿Olvidaste tu contraseña? Restablecer
-        </button>
-      )}
+      <div className="botones-secundarios">
+        {modo !== 'login' && (
+          <button onClick={() => cambiarModo('login')} className="boton-secundario boton-azul">
+            ¿Ya tienes cuenta? Iniciar Sesión
+          </button>
+        )}
+        {modo !== 'register' && (
+          <button onClick={() => cambiarModo('register')} className="boton-secundario boton-verde">
+            ¿No tienes cuenta? Registrarse
+          </button>
+        )}
+        {modo !== 'reset' && (
+          <button onClick={() => cambiarModo('reset')} className="boton-secundario boton-amarillo">
+            ¿Olvidaste tu contraseña? Restablecer
+          </button>
+        )}
+      </div>
 
-      {mensaje && <p style={{ marginTop: '20px', fontWeight: 'bold' }}>{mensaje}</p>}
+      {mensaje && <p className="mensaje">{mensaje}</p>}
     </div>
   );
 };

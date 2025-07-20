@@ -5,7 +5,9 @@ import { getHistory } from './services/api';
 const Alarmas = () => {
   const [alarmas, setAlarmas] = useState([]);
 
+  // ✅ Agregamos clase al body solo en esta vista
   useEffect(() => {
+    document.body.classList.add('alarmas-page');
     const cargarAlarmas = async () => {
       try {
         const data = await getHistory();
@@ -24,10 +26,14 @@ const Alarmas = () => {
     };
 
     cargarAlarmas();
+
+    return () => {
+      document.body.classList.remove('alarmas-page');
+    };
   }, []);
 
   return (
-    <div className="contenedor">
+    <div className="contenedor-alarmas">
       <h1>Alarmas</h1>
       <ul style={{ listStyle: 'none', padding: 0, width: '100%', maxWidth: '500px' }}>
         {alarmas.length === 0 ? (

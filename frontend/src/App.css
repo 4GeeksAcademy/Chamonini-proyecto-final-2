@@ -5,21 +5,51 @@ body {
   margin: 0;
   background: linear-gradient(to bottom right, #dff9fb, #c7ecee);
   color: #2c3e50;
-}
-
-h1, h2 {
-  text-align: center;
-  margin: 10px 0;
-  font-weight: 700;
-}
-
-.contenedor {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  text-align: center;
 }
 
+/* Título siempre arriba */
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* Contenedor principal */
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Botón cerrar sesión pequeño SIN borde */
+.boton-cerrar-sesion {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #e87f7f;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.boton-cerrar-sesion:hover {
+  background-color: #cf6c6c;
+}
+
+/* Estanque */
 .estanque {
   width: 200px;
   height: 400px;
@@ -28,7 +58,7 @@ h1, h2 {
   background: linear-gradient(to top, #dff9fb, #74b9ff);
   position: relative;
   overflow: hidden;
-  margin: 20px 0;
+  margin: 20px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
@@ -42,6 +72,7 @@ h1, h2 {
   border-bottom-right-radius: 12px;
 }
 
+/* Botones encender y apagar bomba */
 .botones {
   margin-top: 20px;
   display: flex;
@@ -51,8 +82,8 @@ h1, h2 {
 }
 
 .boton {
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 16px 28px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 12px;
@@ -77,25 +108,112 @@ h1, h2 {
   background-color: #c82333;
 }
 
-h1 {
-  font-size: 32px;
+/* Alarmas centradas */
+.contenedor-alarmas {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h2 {
+/* Login */
+.contenedor-login {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.titulo-principal {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.titulo-secundario {
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  .estanque {
-    width: 150px;
-    height: 300px;
-  }
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-  h1 {
-    font-size: 24px;
-  }
+.input-login {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  h2 {
-    font-size: 18px;
-  }
+.boton-principal {
+  background-color: #0077cc;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.boton-principal:hover {
+  background-color: #005fa3;
+}
+
+.botones-secundarios {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.boton-secundario {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.boton-azul {
+  background-color: #3498db;
+}
+
+.boton-azul:hover {
+  background-color: #2980b9;
+}
+
+.boton-verde {
+  background-color: #27ae60;
+}
+
+.boton-verde:hover {
+  background-color: #1e8449;
+}
+
+.boton-amarillo {
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+.boton-amarillo:hover {
+  background-color: #d4ac0d;
+}
+
+.mensaje {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #e74c3c;
 }
