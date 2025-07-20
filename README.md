@@ -37,14 +37,14 @@ cd ..
 
 ```bash
 cd frontend
+rm -rf node_modules package-lock.json
+cd ..
+rm -rf node_modules package-lock.json
+npm install
+cd frontend
 npm install
 cd ..
-```
-
-#### Dependencias generales (raíz del proyecto):
-
-```bash
-npm install
+npm start
 ```
 
 ---
@@ -60,23 +60,6 @@ Esto ejecutará:
 * 🟢 Frontend React: [http://localhost:3000](http://localhost:3000)
 * 🟢 Backend Flask API: [http://localhost:5000](http://localhost:5000)
 
----
-
-## 📌 Solución a errores comunes (Codespaces)
-
-### Si frontend muestra error `Cannot find module './async-modules/AsyncModuleHelpers'` o similar:
-
-```bash
-cd frontend
-rm -rf node_modules package-lock.json
-cd ..
-rm -rf node_modules package-lock.json
-npm install
-cd frontend
-npm install
-cd ..
-npm start
-```
 
 ---
 
