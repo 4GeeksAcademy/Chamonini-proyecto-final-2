@@ -21,33 +21,14 @@ git clone <url-del-repositorio>
 cd proyecto-final
 ```
 
-### 1.1. Habilitar puertos públicos en GitHub Codespaces
+---
 
-Si usas Codespaces:
-
-```bash
-gp ports visibility 3000:public 5000:public
-```
-
-Esto asegura que los puertos estén siempre visibles sin necesidad de configurarlos manualmente.
-
-```bash
-git clone <url-del-repositorio>
-cd proyecto-final
-```
-
-### 2. Instalar dependencias
+### 2. Instalar dependencias necesarias
 
 #### Backend:
 
 ```bash
 cd backend
-pip install flask flask-cors flask-bcrypt flask-sqlalchemy
-```
-
-(Opcional si tienes `requirements.txt`):
-
-```bash
 pip install -r requirements.txt
 cd ..
 ```
@@ -60,7 +41,7 @@ npm install
 cd ..
 ```
 
-#### Dependencias generales (root):
+#### Dependencias generales (raíz del proyecto):
 
 ```bash
 npm install
@@ -68,7 +49,7 @@ npm install
 
 ---
 
-### 3. Iniciar la aplicación completa (Backend + Frontend)
+### 3. Iniciar la aplicación completa (Backend + Frontend juntos)
 
 ```bash
 npm start
@@ -81,14 +62,21 @@ Esto ejecutará:
 
 ---
 
-## 📌 Recomendaciones para GitHub Codespaces
+## 📌 Solución a errores comunes (Codespaces)
 
-Si utilizas Codespaces:
+### Si frontend muestra error `Cannot find module './async-modules/AsyncModuleHelpers'` o similar:
 
-* Ve a **Ports** (barra inferior) → **Add Port** → agrega **3000** y **5000**.
-* Click derecho en cada puerto → **Make Public**.
-
-Si tienes `.devcontainer/devcontainer.json`, los puertos se abrirán automáticamente.
+```bash
+cd frontend
+rm -rf node_modules package-lock.json
+cd ..
+rm -rf node_modules package-lock.json
+npm install
+cd frontend
+npm install
+cd ..
+npm start
+```
 
 ---
 
@@ -97,8 +85,8 @@ Si tienes `.devcontainer/devcontainer.json`, los puertos se abrirán automática
 | Comando                    | ¿Qué hace?                       |
 | -------------------------- | -------------------------------- |
 | `npm start`                | Inicia backend y frontend juntos |
-| `cd backend && flask run`  | Solo backend                     |
-| `cd frontend && npm start` | Solo frontend                    |
+| `cd backend && flask run`  | Inicia solo backend              |
+| `cd frontend && npm start` | Inicia solo frontend             |
 
 ---
 
