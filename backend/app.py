@@ -8,12 +8,10 @@ app = Flask(__name__)
 CORS(app)
 bcrypt = Bcrypt(app)
 
-# Configuración base de datos SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///nivel_estanque.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# Modelos
 class LevelRecord(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nivel = db.Column(db.Float, nullable=False)
@@ -25,12 +23,10 @@ class User(db.Model):
     email = db.Column(db.String(120), nullable=True)
     password = db.Column(db.String(200), nullable=False)
 
-# ⚠️ Importante: borrar y crear tablas limpias
 with app.app_context():
     db.drop_all()
     db.create_all()
 
-# Estado actual
 nivel_actual = 4.5
 motobomba_encendida = False
 

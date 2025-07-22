@@ -12,7 +12,6 @@ body {
   text-align: center;
 }
 
-/* Título siempre arriba */
 h1 {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -20,7 +19,6 @@ h1 {
   font-weight: 700;
 }
 
-/* Contenedor principal */
 .contenedor {
   width: 100%;
   max-width: 1200px;
@@ -32,7 +30,6 @@ h1 {
   text-align: center;
 }
 
-/* Botón cerrar sesión pequeño SIN borde */
 .boton-cerrar-sesion {
   padding: 6px 12px;
   font-size: 12px;
@@ -49,7 +46,6 @@ h1 {
   background-color: #cf6c6c;
 }
 
-/* Estanque */
 .estanque {
   width: 200px;
   height: 400px;
@@ -72,7 +68,6 @@ h1 {
   border-bottom-right-radius: 12px;
 }
 
-/* Botones encender y apagar bomba */
 .botones {
   margin-top: 20px;
   display: flex;
@@ -108,7 +103,6 @@ h1 {
   background-color: #c82333;
 }
 
-/* Alarmas centradas */
 .contenedor-alarmas {
   width: 100%;
   max-width: 800px;
@@ -119,7 +113,6 @@ h1 {
   align-items: center;
 }
 
-/* Login */
 .contenedor-login {
   background: white;
   padding: 30px;

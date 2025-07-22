@@ -9,7 +9,6 @@ const EstanqueConGrafico = () => {
   const [historial, setHistorial] = useState([]);
   const [clima, setClima] = useState(null);
 
-  // NUEVO: usuario logueado
   const [user, setUser] = useState(localStorage.getItem("user"));
   const [mostrarMenu, setMostrarMenu] = useState(false);
 

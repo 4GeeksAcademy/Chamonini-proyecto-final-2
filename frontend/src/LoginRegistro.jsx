@@ -4,7 +4,7 @@ import './App.css';
 const API_URL = 'https://organic-tribble-g4w9vgqw46cvpvp-5000.app.github.dev';
 
 const LoginRegistro = () => {
-  const [modo, setModo] = useState('login'); // login, register, reset
+  const [modo, setModo] = useState('login'); 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

@@ -5,13 +5,12 @@ import { getHistory } from './services/api';
 const Alarmas = () => {
   const [alarmas, setAlarmas] = useState([]);
 
-  // ✅ Agregamos clase al body solo en esta vista
   useEffect(() => {
     document.body.classList.add('alarmas-page');
     const cargarAlarmas = async () => {
       try {
         const data = await getHistory();
-        // Filtrar sólo registros donde nivel <= 25% o >= 100%
+      
         const alarmasFiltradas = data.filter(item => {
           const porcentaje = (item.nivel / 5) * 100;
           return porcentaje <= 25 || porcentaje >= 100;
